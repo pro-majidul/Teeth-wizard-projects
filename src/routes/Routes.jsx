@@ -6,6 +6,7 @@ import Profile from './../pages/profile/Profile'
 import AllTreatments from './../pages/all-treatments/AllTreatments';
 import Error from "../components/Error";
 import Details from "../pages/Service-Details/Details";
+import Login from "../pages/login/Login";
 
 const Routes = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const Routes = createBrowserRouter([
                     const singleData = data.find(item => item.id == parseInt(params.id));
                     return singleData
                 }
+            },
+            {
+                path : '/login',
+                element : <Login></Login>
             }
         ]
     }
