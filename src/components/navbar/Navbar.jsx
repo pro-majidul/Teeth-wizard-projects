@@ -23,17 +23,21 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/'>Home</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/teatments'>All Treatments</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/appoinment'>My Appoinments</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/profile'>Profile</NavLink>
 
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl">TEETH WIZARD</Link>
+                <Link to='/' className="btn btn-ghost font-bold md:text-xl">TEETH WIZARD</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
-                    <NavLink className={({isActive}) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/'>Home</NavLink>
-                    <NavLink className={({isActive}) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/teatments'>All Treatments</NavLink>
-                    <NavLink className={({isActive}) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/appoinment'>My Appoinments</NavLink>
-                    <NavLink className={({isActive}) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/profile'>Profile</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/'>Home</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/teatments'>All Treatments</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/appoinment'>My Appoinments</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? 'btn btn-success text-white font-normal text-lg' : ' font-normal text-lg btn'} to='/profile'>Profile</NavLink>
                 </ul>
             </div>
             <div className="navbar-end">
