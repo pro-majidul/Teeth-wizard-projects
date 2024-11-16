@@ -6,7 +6,6 @@ import Feedback from "../feedback/Feedback";
 const Home = () => {
     const services = useLoaderData();
     const { serviceData, feedbackData } = services;
-    console.log(feedbackData);
     return (
         <section className="my-3 py-3">
             <Banner></Banner>
@@ -19,7 +18,7 @@ const Home = () => {
             <button className="btn  mx-auto block btn-accent w-32 ">
                 <NavLink to='/teatments' >Show more </NavLink>
             </button>
-                <p className="text-3xl font-bold my-3 py-2 underline underline-offset-8 text-green-600">Client Review</p>
+            <p className="text-3xl font-bold my-3 py-2 underline underline-offset-8 text-green-600">Client Review</p>
             <div className="grid md:grid-cols-3 gap-6 my-6">
                 {
                     feedbackData.map(feed => <Feedback key={feed.id} feedback={feed}></Feedback>)
