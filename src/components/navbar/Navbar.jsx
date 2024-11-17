@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthProvider } from "../../provider/Provider";
 
 const Navbar = () => {
-
+    const { user, LogoutUser, setUser } = useContext(AuthProvider)
+    const handelLogOut = () => {
+        LogoutUser()
+            .then(resutl => {
+                setUser(resutl.user)
+            })
+            .catch(error => {
+                console.log(error.code);
+            })
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -41,7 +52,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn text-lg font-normal">Login</Link>
+                {
+                    user && user?.email ? <div className="flex  gap-2 items-center">
+                        <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
+                        <Link onClick={handelLogOut} className="btn text-lg font-normal">Log Out</Link>
+                    </div>  : <Link to='/login' className="btn text-lg font-normal">Login</Link>
+                }
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ import AllTreatments from './../pages/all-treatments/AllTreatments';
 import Error from "../components/Error";
 import Details from "../pages/Service-Details/Details";
 import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 
 const Routes = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const Routes = createBrowserRouter([
             {
                 path : '/login',
                 element : <Login></Login>
+            },
+            {
+                path : '/register',
+                element : <Register></Register>
             }
         ]
     }
