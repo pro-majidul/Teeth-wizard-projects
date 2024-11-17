@@ -8,6 +8,7 @@ import Error from "../components/Error";
 import Details from "../pages/Service-Details/Details";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import Private from "../components/private/Private";
 
 const Routes = createBrowserRouter([
     {
@@ -45,7 +46,9 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <Details></Details>,
+                element: <Private>
+                    <Details></Details>
+                </Private>,
                 loader: async ({ params }) => {
                     const res = await fetch('/service.json')
                     const data = await res.json()

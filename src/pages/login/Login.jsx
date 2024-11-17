@@ -1,15 +1,17 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../../provider/Provider";
 
 const Login = () => {
-    const navigate = useNavigate()
-    const { googleLogin, setUser,LoginUser } = useContext(AuthProvider)
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
+    const { googleLogin, setUser, LoginUser } = useContext(AuthProvider)
     const handelGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 setUser(result.user)
-                navigate('/')
+                navigate(location?.state ? location?.state : '/')
             })
             .catch(error => {
                 console.log(error.code);
@@ -17,18 +19,18 @@ const Login = () => {
 
     }
 
-    const handelUserLogin = (e) =>{
+    const handelUserLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        LoginUser(email , password)
-        .then(result => {
-            setUser(result.user)
-        })
-        .catch(error => {
-            console.log(error.code);
-        })
-        navigate('/')
+        LoginUser(email, password)
+            .then(result => {
+                setUser(result.user)
+                navigate(location?.state ? location?.state : '/')
+            })
+            .catch(error => {
+                console.log(error.code);
+            })
 
     }
     return (

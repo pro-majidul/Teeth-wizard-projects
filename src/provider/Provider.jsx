@@ -8,6 +8,7 @@ export const AuthProvider = createContext()
 const Provider = ({ children }) => {
 
     const [user, setUser] = useState(null)
+    const [loader , setLoader] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const googleLogin = () => {
         return signInWithPopup(auth, googleProvider)
@@ -34,8 +35,11 @@ const Provider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser)
+                setLoader(false)
             } else {
                 setUser(null)
+                setLoader(false)
+              
             }
         })
         return () => {
@@ -52,6 +56,7 @@ const Provider = ({ children }) => {
         setUser,
         user,
         userProfleUpdate,
+        loader,
     }
 
     return (
